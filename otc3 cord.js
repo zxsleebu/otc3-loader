@@ -109,13 +109,13 @@ var menu_elements = {
 			],
 			"Min-DMG bind": [
 				{"type": "checkbox", "name": "Enabled", "id": "mindamage"},
-				{"type": "slider", "name": "Min damage override", "id": "mindamage_hp", "min": 1, "max": 130, "default": 5}
+				{"type": "slider", "name": "Min damage override", "id": "mindamage_hp", "min": 1, "max": 130, "default": 5, "master": "mindamage"}
 			],
 			"Other": [
 				{"type": "checkbox", "name": "Force backshoot bind", "id": "force_backshoot"},
 				{"type": "checkbox", "name": "Ping spike bind", "id": "ping_spike"},
 				{"type": "checkbox", "name": "Custom zeus hitchance", "id": "zeus_hitchance_enabled"},
-				{"type": "slider", "name": "Hitchance", "id": "zeus_hitchance", "min": 0, "max": 100, "append": "%", "default": 70}
+				{"type": "slider", "name": "Hitchance", "id": "zeus_hitchance", "min": 0, "max": 100, "append": "%", "default": 70, "master": "zeus_hitchance_enabled"}
 			],
 			"Doubletap": [
 				{"type": "checkbox", "name": "DT recharge boost", "id": "doubletap_boost"},
@@ -135,7 +135,7 @@ var menu_elements = {
 			],
 			"Fake-Lag": [
 				{"type": "checkbox", "name": "Alternative fake-lag", "id": "alternative_fakelag", "hint": "Makes your fake-lag less predictable"},
-				{"type": "slider", "name": "Alternative limit", "id": "alternative_limit", "min": 1, "max": 16, "default": 16},
+				{"type": "slider", "name": "Alternative limit", "id": "alternative_limit", "min": 1, "max": 16, "default": 16, "master": "alternative_fakelag"},
 				{"type": "checkbox", "name": "No revolver fake-lag", "id": "fakelag_fix", "hint": "Helps to prevent R8 shooting at floor"}
 			],
 			"Auto invert": [
@@ -147,8 +147,8 @@ var menu_elements = {
 			"Animations": [
 				{"type": "checkbox", "name": "Matchmaking FD", "id": "mm_fd", "hint": "Fakeduck created from a sketch.\nYou can use opposite LBY,\nbut your body will jitter and stop sometimes.\nThe best preset for MM is Lower Rage"},
 				{"type": "checkbox", "name": "Slowmotion", "id": "slowmotion", "hint": "Makes your legs being slow and sliding on slowwalk"},
-				{"type": "checkbox", "name": "Slowmotion legbreaker", "id": "slowmotion_legbreaker", "hint": "Jitters your legs and body on slowmotion.\nBreaks enemy's animfix.\nLess speed = more jitter"},
-				{"type": "slider", "name": "Slowmotion speed", "id": "slowmotion_speed", "min": 5, "max": 70, "default": 45},
+				{"type": "checkbox", "name": "Slowmotion legbreaker", "id": "slowmotion_legbreaker", "hint": "Jitters your legs and body on slowmotion.\nBreaks enemy's animfix.\nLess speed = more jitter", "master": "slowmotion"},
+				{"type": "slider", "name": "Slowmotion speed", "id": "slowmotion_speed", "min": 5, "max": 70, "default": 45, "master": "slowmotion"},
 				{"type": "checkbox", "name": "Legbreaker", "id": "legbreaker", "hint": "Spams \"Slide walk\" to make your legs unpredictable\nWorks better with alternative fake-lag"}
 			]
 		}
@@ -172,19 +172,19 @@ var menu_elements = {
 			],
 			"Custom fog": [
 				{"type": "checkbox", "name": "Enabled", "id": "custom_fog"},
-				{"type": "slider", "name": "Distance", "id": "fog_distance", "min": 0, "max": 3000},
-				{"type": "slider", "name": "Distance third person", "id": "fog_distance_3rd", "min": 0, "max": 2500, "visible": false},
-				{"type": "slider", "name": "Density", "id": "fog_density", "min": 0, "max": 100}
+				{"type": "slider", "name": "Distance", "id": "fog_distance", "min": 0, "max": 3000, "master": "custom_fog"},
+				{"type": "slider", "name": "Distance third person", "id": "fog_distance_3rd", "min": 0, "max": 2500, "visible": false, "master": "custom_fog"},
+				{"type": "slider", "name": "Density", "id": "fog_density", "min": 0, "max": 100, "master": "custom_fog"}
 			]
 		},
 		"Models": {
 			"Better Glow Chams": [
 				{"type": "checkbox", "name": "Enabled", "id": "better_glow_chams"},
-				{"type": "checkbox", "name": "Hollow", "id": "better_glow_chams_hollow"},
-				{"type": "checkbox", "name": "Pulse", "id": "better_glow_chams_pulse"},
-				{"type": "checkbox", "name": "Rainbow", "id": "better_glow_chams_rainbow"},
-				{"type": "checkbox", "name": "Wireframe", "id": "better_glow_chams_wireframe"},
-				{"type": "slider", "name": "Vibrancy", "id": "better_glow_chams_vibrancy", "min": 0, "max": 100, "append": "%", "default": 85}
+				{"type": "checkbox", "name": "Hollow", "id": "better_glow_chams_hollow", "master": "better_glow_chams"},
+				{"type": "checkbox", "name": "Pulse", "id": "better_glow_chams_pulse", "master": "better_glow_chams"},
+				{"type": "checkbox", "name": "Rainbow", "id": "better_glow_chams_rainbow", "master": "better_glow_chams"},
+				{"type": "checkbox", "name": "Wireframe", "id": "better_glow_chams_wireframe", "master": "better_glow_chams"},
+				{"type": "slider", "name": "Vibrancy", "id": "better_glow_chams_vibrancy", "min": 0, "max": 100, "append": "%", "default": 85, "master": "better_glow_chams"}
 			],
 			"Model changer": [
 				{"type": "checkbox", "name": "Agent changer", "id": "agent_changer", "hint": "Team-based agent changer.\nAPI issue to add new agents, sorry"},
@@ -227,7 +227,7 @@ var menu_elements = {
 				{"type": "checkbox", "name": "Clantag on peek", "id": "clantag_on_peek", "hint": "Turns on clantag when enemy is peeking"},
 				{"type": "checkbox", "name": "Clantag", "id": "clantag"},
 				{"type": "checkbox", "name": "Killsay", "id": "killsay"},
-				{"type": "checkbox", "name": "Show useless features", "id": "useless_features"}
+				{"type": "checkbox", "name": "Show useless features", "id": "useless_features", "hint": "elleqt ne trap"}
 			],
 			"Information": [
 				{"type": "checkbox", "name": "Buy list", "id": "buy_list"},
@@ -357,7 +357,7 @@ var block_set2 = false;
 var scoutInAir = 40;
 function jumpscout(){
 	if(!checkbox_states["jumpscout"]) return;
-	if(getWeaponName() !== "ssg 08"){
+	if(getWeaponName() !== "ssg08"){
 		if(UI.GetValue("Rage", "SCOUT", "Accuracy", "Hitchance") !== scoutInAir){
 			hitchanceBak = UI.GetValue("Rage", "SCOUT", "Accuracy", "Hitchance");
 		}
@@ -432,7 +432,7 @@ function autoscope(){
 	}
 	local = Entity.GetLocalPlayer();
 	if(checkbox_states["adaptive_noscope"]){
-		if((getWeaponName() !== "ssg 08" && getWeaponName() !== "scar 20" && getWeaponName() !== "g3sg1") || isInAir()){
+		if((getWeaponName() !== "ssg08" && getWeaponName() !== "scar20" && getWeaponName() !== "g3sg1") || isInAir()){
 			UI.SetValue("Rage", "GENERAL", "General", "Auto scope", true);
     	    return;
 		};
@@ -453,8 +453,8 @@ function autoscope(){
 	}
     if(checkbox_states["predictive_autoscope"]){
     	switch(getWeaponName()){
-    		case "ssg 08":
-    		case "scar 20":
+    		case "ssg08":
+    		case "scar20":
     		case "g3sg1":
     		case "awp":
     			break;
@@ -703,14 +703,15 @@ var legbreaker_old_tick_count = Globals.Tickcount();
 var fakelag_leg = false;
 function legBreaker(){
 	if(!checkbox_states["legbreaker"]) return;
-	if((Globals.Tickcount() - legbreaker_old_tick_count) > legbreaker_speed && (!checkbox_states["alternative_fakelag"] || exploitsActive("all"))){
+	var leghider = checkbox_states["alternative_fakelag"] && !exploitsActive("all") && UI.GetValue("Anti-Aim", "Fake-Lag", "Enabled");
+	if((Globals.Tickcount() - legbreaker_old_tick_count) > legbreaker_speed && !leghider){
         if (UI.GetValue("Misc", "GENERAL", "Movement", "Slide walk"))
             UI.SetValue("Misc", "GENERAL", "Movement", "Slide walk", 0);
         else
             UI.SetValue("Misc", "GENERAL", "Movement", "Slide walk", 1);
         legbreaker_old_tick_count = Globals.Tickcount();
     }
-    if(checkbox_states["alternative_fakelag"] && !exploitsActive("all")){
+    if(leghider){
     	if(!fakelag_leg && fakelag_flip){
     		UI.SetValue("Misc", "GENERAL", "Movement", "Slide walk", 1);
     		fakelag_leg = true;
@@ -949,7 +950,7 @@ function transparencyOnNade(){
 	if(!checkbox_states["transparency_on_nade"]) return;
 	var weapon = getWeaponName();
 	local = Entity.GetLocalPlayer();
-	if((weapon.indexOf("grenade") !== -1 /*|| weapon === "flashbang"*/  || weapon === "molotov") && weapon !== "decoy grenade" && Entity.IsAlive(local) && Input.IsKeyPressed(0x01)){
+	if((weapon.indexOf("nade") !== -1 /*|| weapon === "flashbang"*/  || weapon === "molotov") && weapon !== "decoy" && Entity.IsAlive(local) && Input.IsKeyPressed(0x01)){
 		block_set5 = 0;
 		UI.SetValue("Visual", "Map", "Wall transparency", (GetValue("Wall transparency") / 100));
 		UI.SetValue("Visual", "Map", "Prop transparency", (GetValue("Prop transparency") / 100));
@@ -1396,7 +1397,7 @@ function doubletapBoost(){
 				}
 				break;
 			case 2:
-				if(getWeaponName() === "ssg 08"){
+				if(getWeaponName() === "ssg08"){
 					Exploit.DisableRecharge();
 					if(can_shift_shot(16) && charge != 1){
 						Exploit.DisableRecharge();
@@ -1416,7 +1417,7 @@ function doubletapBoost(){
 				}
 				break;
 			case 3:
-				if(getWeaponName() === "ssg 08"){
+				if(getWeaponName() === "ssg08"){
 					Exploit.DisableRecharge();
 					if(can_shift_shot(16) && charge != 1){
 						Exploit.DisableRecharge();
@@ -1664,7 +1665,7 @@ function buyList(){
 	var players = Object.keys(buys);
 	for(i = 0; i < players.length; i++){
 		var add_width = 0;
-		var name = rus_to_latin(Entity.GetName(Entity.GetEntityFromUserID(players[i])));
+		var name = Entity.GetName(Entity.GetEntityFromUserID(players[i]));
 		var name_size = Render.TextSizeCustom(name, list_font);
 		renderShadowText(buy_list_x + 3, buy_list_y + list_height + add_height, name, list_text_color, list_font);
 		for(a = 0; a < buys[players[i]].length; a++){
@@ -2351,7 +2352,7 @@ var block_set12 = false;
 function fixes(){
 	var weapon = getWeaponName();
 	if(checkbox_states["fakelag_fix"]){
-		if(weapon == "r8 revolver" && !mmFDActive){
+		if(weapon == "revolver" && !mmFDActive){
 			noFakeLagOnRevolver = true;
 			block_set11 = false;
 			UI.SetValue("Anti-Aim", "Fake-Lag", "Enabled", 0);
@@ -2580,7 +2581,7 @@ var block_set16 = false;
 var legitAAactive = false;
 function legitAA(){
 	var weapon = getWeaponName();
-	var local_isKnife = (weapon.indexOf("knife") !== -1 || weapon.indexOf("bayonet") !== -1 || weapon.indexOf("karambit") !== -1 || weapon.indexOf("shadow daggers") !== -1);
+	var local_isKnife = weapon.indexOf("knife") !== -1;
 	var noAAonKnife = local_isKnife && checkbox_states["antiaim_fix"];
 	if((checkbox_states["legit_aa"] && UI.IsHotkeyActive("Script items", "Legit AA")) || noAAonKnife){
 		legitAAactive = true;
@@ -3076,28 +3077,84 @@ function can_shift_shot(ticks_to_shift) {
     return true;
 }
 
-function rus_to_latin(str){
-    var ru = {
-        'а': 'a', 'б': 'b', 'в': 'v', 'г': 'g', 'д': 'd', 
-        'е': 'e', 'ё': 'e', 'ж': 'j', 'з': 'z', 'и': 'i', 
-        'к': 'k', 'л': 'l', 'м': 'm', 'н': 'n', 'о': 'o', 
-        'п': 'p', 'р': 'r', 'с': 's', 'т': 't', 'у': 'u', 
-        'ф': 'f', 'х': 'h', 'ц': 'c', 'ч': 'ch', 'ш': 'sh', 
-        'щ': 'shch', 'ы': 'y', 'э': 'e', 'ю': 'u', 'я': 'ya'
-    }, n_str = [];
-    str = str.replace(/[ъь]+/g, '').replace(/й/g, 'i');
-    for(var i = 0; i < str.length; ++i){
-    	n_str.push(
-    		ru[str[i]]
-    	    || ru[str[i].toLowerCase()] == undefined && str[i]
-    	    || ru[str[i].toLowerCase()].toUpperCase()
-    	);
-    }
-    return n_str.join('');
-}
-
+var csgo_weapons = {
+	"0": "none",
+	"1": "deagle",
+	"2": "elite",
+	"3": "fiveseven",
+	"4": "glock",
+	"5": "p228",
+	"6": "usp",
+	"7": "ak47",
+	"8": "aug",
+	"9": "awp",
+	"10": "famas",
+	"11": "g3sg1",
+	"12": "galil",
+	"13": "galilar",
+	"14": "m249",
+	"15": "m3",
+	"16": "m4a4",
+	"17": "mac10",
+	"18": "mp5navy",
+	"19": "p90",
+	"20": "ssg08",
+	"21": "sg550",
+	"22": "sg552",
+	"23": "tmp",
+	"24": "ump45",
+	"25": "xm1014",
+	"26": "bizon",
+	"27": "mag7",
+	"28": "negev",
+	"29": "sawedoff",
+	"30": "tec9",
+	"31": "taser",
+	"32": "hkp2000",
+	"33": "mp7",
+	"34": "mp9",
+	"35": "nova",
+	"36": "p250",
+	"37": "scar17",
+	"38": "scar20",
+	"39": "sg556",
+	"40": "ssg08",
+	"41": "knifegg",
+	"42": "knife",
+	"43": "flashbang",
+	"44": "hegrenade",
+	"45": "smokegrenade",
+	"46": "molotov",
+	"47": "decoy",
+	"48": "incgrenade",
+	"49": "c4",
+	"60": "m4a1",
+	"63": "cz75",
+	"64": "revolver",
+	"197108": "knife",
+	"197113": "knife",
+	"197114": "knife",
+	"197115": "knife",
+	"197116": "knife",
+	"197123": "knife",
+	"197120": "knife",
+	"197128": "knife",
+	"197124": "knife",
+	"197130": "knife",
+	"197122": "knife",
+	"197117": "knife",
+	"197131": "knife",
+	"197127": "knife",
+	"197111": "knife",
+	"197125": "knife",
+	"197126": "knife",
+	"197129": "knife",
+	"197133": "knife",
+	"262205": "usp"
+};
 function getWeaponName(){
-	return Entity.GetName(Entity.GetWeapon(Entity.GetLocalPlayer()));
+	var weapon = Entity.GetProp(Entity.GetWeapon(Entity.GetLocalPlayer()), "DT_WeaponBaseItem", "m_iItemDefinitionIndex");
+	return csgo_weapons[weapon];
 }
 
 function isSlowwalking(){
@@ -3607,6 +3664,7 @@ function renderElements(){
 		for(e = 0; e < subtab_boxes[box_name].length; e++){
 			element_y = subtab_start + 50 + 13;
 			var element = subtab_boxes[box_name][e];
+			if("master" in element && !checkbox_states[element["master"]]) continue;
 			switch(element["type"]){
 				case "checkbox":
 					var visible = ("visible" in element) ? element["visible"] : true;
@@ -3773,7 +3831,7 @@ function renderHints(){
 
 }
 
-function renderSlider(name, sliderY, right, id, min, max, append){
+function renderSlider(name, sliderY, right, id, min, max, append, master){
 	var sliderX = ((right) ? x + 15 + box_width + 24 : x + 15) + box_text_margin_x - 6;
 	var sliderWidth = box_width - box_text_margin_x * 2 + 14;
 	var value = slider_values[id];
