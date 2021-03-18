@@ -19,8 +19,8 @@
 //29.01.2020
 
 var name_text = "otc3 cord";
-var last_upd = "16.03.21";
-var version = "0.2.1";
+var last_upd = "18.03.21";
+var version = "0.2.2";
 var width = 438;
 var height = 500;
 
@@ -3371,7 +3371,7 @@ function GetValue(name){
 var tab_names = Object.keys(menu_elements);
 var loadedSettings = 0;
 function loadSettings(){
-	if(loadedSettings > 128) return;
+	if(loadedSettings > 512) return;
 	for(i = 0; i < tab_names.length; i++){
 		var tabname = tab_names[i];
 		var subtab_names = Object.keys(menu_elements[tab_names[i]]);
